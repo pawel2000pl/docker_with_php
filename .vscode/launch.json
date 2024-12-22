@@ -4,8 +4,8 @@
         {
             "name": "Launch",
             "type": "php",
-            "preLaunchTask": "run-debug",
-            "postDebugTask": "remove-container",
+            "preLaunchTask": "before-launch",
+            "postDebugTask": "clean",
             "request": "launch",
             "port": 9003,
             "pathMappings": {
@@ -15,8 +15,8 @@
         {
             "name": "Launch no mapping",
             "type": "php",
-            "preLaunchTask": "run-debug-no-mapping",
-            "postDebugTask": "remove-container",
+            "preLaunchTask": "before-launch-no-mapping",
+            "postDebugTask": "clean",
             "request": "launch",
             "port": 9003,
             "pathMappings": {

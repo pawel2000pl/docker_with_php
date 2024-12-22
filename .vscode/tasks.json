@@ -2,28 +2,70 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build",
+            "command": "docker",
+            "args": ["-t", "my_php_app", "."],
+            "type": "shell"
+        },
+        {
+            "label": "build-debug",
+            "command": "docker",
+            "args": ["build", "--build-arg", "DEBUG=TRUE", "-t", "my_php_app", "."],
+            "type": "shell"
+        },
+        {
             "label": "run",
-            "command": "python3",
-            "args": ["make.py"],
+            "command": "docker",
+            "args": ["run", "--env-file", ".env", "-p", "8080:80", "-p", "43443:443", "-p", "2222:22", "--name", "my_php_app", "my_php_app"],
             "type": "shell"
         },
         {
             "label": "run-debug",
-            "command": "python3",
-            "args": ["make.py", "DEBUG=true", "ASYNC=true", "NO_MAPPING=false"],
+            "command": "docker",
+            "args": ["run", "--env-file", ".env", "-e", "DEBUG=TRUE", "--mount", "type=bind,source=${workspaceFolder}/application,target=/debug", "--device", "/dev/fuse", "--privileged", "-d", "-p", "8080:80", "-p", "43443:443", "-p", "2222:22", "--name", "my_php_app", "my_php_app"],
             "type": "shell"
         },
         {
             "label": "run-debug-no-mapping",
-            "command": "python3",
-            "args": ["make.py", "DEBUG=true", "ASYNC=true", "NO_MAPPING=true"],
+            "command": "docker",
+            "args": ["run", "--env-file", ".env", "-e", "DEBUG=TRUE", "-d", "-p", "8080:80", "-p", "43443:443", "-p", "2222:22", "--name", "my_php_app", "my_php_app"],
             "type": "shell"
         },
         {
-            "label": "remove-container",
-            "command": "python3",
-            "args": ["make.py", "remove-container"],
+            "label": "kill",
+            "command": "docker",
+            "args": ["kill", "my_php_app"],
             "type": "shell"
+        },
+        {
+            "label": "remove",
+            "command": "docker",
+            "args": ["container", "rm", "-f", "my_php_app"],
+            "type": "shell"
+        },
+        {
+            "label": "before-launch",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build-debug",
+                "run-debug"
+            ]
+        },
+        {
+            "label": "before-launch-no-mapping",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build-debug",
+                "run-debug-no-mapping"
+            ]
+        },
+        {
+            "label": "clean",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "kill",
+                "remove"
+            ]
         },
     ]
 }

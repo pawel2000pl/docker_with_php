@@ -12,16 +12,18 @@ This repository provides a simple and ready-to-use PHP application template desi
 
 * VS-Code, VS-Codium or any other clone of VS-Code;
 * Docker;
-* Python;
 * PHP Debug add-on for VS-something.
 
 
 ## Getting Started
 
 1. Clone this repository:  
-   ```bash
-   git clone https://github.com/your-username/php-docker-template.git
+   ```bash https://github.com/pawel2000pl/docker_with_php.git```
 
 2. Open directory with VS-something.
 
 3. Press F5 and wait a while.
+
+4. Open ```http://localhost:8080``` in your browser.
+
+### REMEMBER TO REMOVE .ENV FILE FROM YOUR REPOSITORY
