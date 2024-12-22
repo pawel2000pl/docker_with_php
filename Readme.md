@@ -18,7 +18,7 @@ This repository provides a simple and ready-to-use PHP application template desi
 ## Getting Started
 
 1. Clone this repository:  
-   ```bash https://github.com/pawel2000pl/docker_with_php.git```
+   ```git clone https://github.com/pawel2000pl/docker_with_php.git```
 
 2. Open directory with VS-something.
 
