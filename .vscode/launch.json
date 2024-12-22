@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "php",
+            "preLaunchTask": "run-debug",
+            "postDebugTask": "remove-container",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www": "${workspaceFolder}/application"
+            }
+        },
+        {
+            "name": "Launch no mapping",
+            "type": "php",
+            "preLaunchTask": "run-debug-no-mapping",
+            "postDebugTask": "remove-container",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www": "${workspaceFolder}/application"
+            }
+        }
+    ]
+}

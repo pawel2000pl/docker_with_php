@@ -1,0 +1,1 @@
+cp "$1" /dev/shm/rc.tmp; cat /dev/shm/rc.tmp | tr -d '\r' > "$1"

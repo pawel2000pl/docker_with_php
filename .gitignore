@@ -1,0 +1,3 @@
+.directory
+deploy/rsa_pub/*
+.env

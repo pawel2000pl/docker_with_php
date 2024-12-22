@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "command": "python3",
+            "args": ["make.py"],
+            "type": "shell"
+        },
+        {
+            "label": "run-debug",
+            "command": "python3",
+            "args": ["make.py", "DEBUG=true", "ASYNC=true", "NO_MAPPING=false"],
+            "type": "shell"
+        },
+        {
+            "label": "run-debug-no-mapping",
+            "command": "python3",
+            "args": ["make.py", "DEBUG=true", "ASYNC=true", "NO_MAPPING=true"],
+            "type": "shell"
+        },
+        {
+            "label": "remove-container",
+            "command": "python3",
+            "args": ["make.py", "remove-container"],
+            "type": "shell"
+        },
+    ]
+}
