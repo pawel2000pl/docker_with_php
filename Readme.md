@@ -42,5 +42,7 @@ VS-code rebuilds the container every time you run debugging so you should not ca
 * `protected` - content available only from `localhost` - it might be useful with `cron` scripts;
 * `private` - content unavailable by nginx.
 
+## Cron
 
-
+Cron is preinstalled in a container. The crontab file is in `deploy/crontab`.
+Modify the file to see the changes.

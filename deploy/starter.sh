@@ -28,8 +28,10 @@ fi
 service ssh start
 service php8.2-fpm start
 service nginx start
+service cron start
 
 cleanup_function() {
+    service cron stop
     service ssh stop
     service php8.2-fpm stop
     service nginx stop

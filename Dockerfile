@@ -14,6 +14,12 @@ RUN rm /tmp/packages.txt
 RUN make-ssl-cert generate-default-snakeoil
 RUN usermod --append --groups ssl-cert www-data
 
+# cron
+COPY deploy/crontab /etc/cron.d/crontab
+RUN bash /tmp/remove_carriage.sh /etc/cron.d/crontab
+RUN chmod 0644 /etc/cron.d/crontab
+RUN crontab /etc/cron.d/crontab
+
 # env & debug settings
 ARG DEBUG="FALSE"
 ENV DEBUG="$DEBUG"

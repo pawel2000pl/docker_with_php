@@ -1,0 +1,6 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+# Uncomment the line below to see an example
+# * * * * * curl localhost/protected/update_static.php
+
