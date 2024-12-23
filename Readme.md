@@ -18,12 +18,29 @@ This repository provides a simple and ready-to-use PHP application template desi
 ## Getting Started
 
 1. Clone this repository:  
-   ```git clone https://github.com/pawel2000pl/docker_with_php.git```
+   `git clone https://github.com/pawel2000pl/docker_with_php.git`
 
 2. Open directory with VS-something.
 
 3. Press F5 and wait a while.
 
-4. Open ```http://localhost:8080``` in your browser.
+4. Open `http://localhost:8080` in your browser.
 
 ### REMEMBER TO REMOVE .ENV FILE FROM YOUR REPOSITORY
+
+## Directory structure
+
+All files and directories from `application` are copied to `/var/www`.
+This directory (and only this) can be mapped directly to container.
+Changes in other directories (f.e.: changing nginx configuation) require container restart. 
+Container once started with mapping cannot be used without it anymore because original files inside the container are removed. 
+VS-code rebuilds the container every time you run debugging so you should not carry about it.
+
+#### Direcories in `/var/www`:
+
+* `public` - content available from outside;
+* `protected` - content available only from `localhost` - it might be useful with `cron` scripts;
+* `private` - content unavailable by nginx.
+
+
+

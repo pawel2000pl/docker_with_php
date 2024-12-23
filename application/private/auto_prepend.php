@@ -2,9 +2,10 @@
 
 
 class Paths {
-    const MAIN = '/var/www/';
-    const PROTECTED = self::MAIN.'protected/';
-    const PRIVATE = self::MAIN.'private/';
+    const ROOT = '/var/www/';
+    const PUBLIC = self::ROOT.'public/';
+    const PROTECTED = self::ROOT.'protected/';
+    const PRIVATE = self::ROOT.'private/';
 }
 
 

@@ -14,6 +14,8 @@
     include(Paths::PRIVATE.'example.php');
 
     echo "<hr>";
+    echo file_get_contents("http://127.0.0.1/protected/static.txt");
+    echo "<hr>";
     echo file_get_contents("http://127.0.0.1/protected/example.php");
     echo "<hr>";
 

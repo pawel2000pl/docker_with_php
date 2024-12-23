@@ -52,7 +52,7 @@ RUN find /var/www/ -name "*.sh" -exec bash /tmp/remove_carriage.sh {} \;
 RUN find /var/www/ -name "*.py" -exec bash /tmp/remove_carriage.sh {} \;
 RUN chown -R www-data:www-data /var/www
 
-RUN date -u +"%Y%m%d%H%M%S" > '/var/www/static_salt.txt'
+RUN date -u +"%Y%m%d%H%M%S" > '/var/www/private/timestamp.txt'
 
 EXPOSE 22
 EXPOSE 80
