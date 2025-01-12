@@ -31,5 +31,7 @@ sshfs
 ssl-cert
 systemtap-sdt-dev
 tree
+unzip
 wget 
 zlib1g-dev 
+zip
