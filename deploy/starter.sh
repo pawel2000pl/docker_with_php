@@ -8,6 +8,7 @@ PHP_CONF='/etc/php/8.2/fpm/pool.d/www.conf'
 ENV_FILE='/root/.env'
 TMP_PHP_CONF="/tmp/php.conf.tmp"
 
+
 for VAR in $(printenv | awk -F= '{print $1}'); do
     VALUE=$(printenv "$VAR")
     cp "$PHP_CONF" "$TMP_PHP_CONF"
@@ -24,6 +25,13 @@ then
     rm -rf /var/www/*
     bindfs -u www-data -g www-data --create-for-user=$USER_OWNER --create-for-group=$GROUP_OWNER /debug /var/www
 fi
+
+
+if [ -e "/tmp/wordpress/wordpress" ]
+then
+    cp -ur /tmp/wordpress/wordpress/* /var/www/public/
+fi
+
 
 service ssh start
 service php8.2-fpm start

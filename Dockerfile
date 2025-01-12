@@ -47,8 +47,14 @@ RUN echo 'auto_prepend_file = /var/www/private/auto_prepend.php' >> /etc/php/8.2
 RUN echo 'variables_order = "EGPCS"' >> /etc/php/8.2/fpm/php.ini
 RUN echo 'reques_order = "GP"' >> /etc/php/8.2/fpm/php.ini
 RUN cp /etc/php/8.2/fpm/php.ini /etc/php/8.2/cli/php.ini
-WORKDIR /
 
+# wordpress download
+WORKDIR /tmp
+RUN wget https://wordpress.org/latest.zip --output-document /tmp/wordpress.zip
+RUN unzip -o /tmp/wordpress.zip -d /tmp/wordpress/
+
+# copy files
+WORKDIR /
 RUN rm -rf /var/www/*
 COPY application /var/www
 RUN find /var/www/ -name "*.php" -exec bash /tmp/remove_carriage.sh {} \;
