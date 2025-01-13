@@ -3,6 +3,7 @@ curl
 fuse3
 html2text
 htop
+iputils-ping
 libargon2-0-dev 
 libpcre3-dev 
 libphp8.2-embed

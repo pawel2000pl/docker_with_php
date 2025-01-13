@@ -35,6 +35,8 @@ COPY deploy/rsa_pub/*.pub /root/.ssh/
 RUN cat /root/.ssh/*.pub > /root/.ssh/authorized_keys
 COPY deploy/bashrc.sh /root/.bashrc
 COPY deploy/ssh_config /etc/ssh/ssh_config
+RUN bash /tmp/remove_carriage.sh /root/.bashrc
+RUN bash /tmp/remove_carriage.sh /etc/ssh/ssh_config
 
 # nginx & php configuration
 COPY deploy/sites.conf /etc/nginx/sites-available/
@@ -56,6 +58,7 @@ RUN find /var/www/ -name "*.js" -exec bash /tmp/remove_carriage.sh {} \;
 RUN find /var/www/ -name "*.css" -exec bash /tmp/remove_carriage.sh {} \;
 RUN find /var/www/ -name "*.sh" -exec bash /tmp/remove_carriage.sh {} \;
 RUN find /var/www/ -name "*.py" -exec bash /tmp/remove_carriage.sh {} \;
+RUN find /var/www/ -name "*.sh" -exec bash /tmp/remove_carriage.sh {} \;
 RUN chown -R www-data:www-data /var/www
 
 RUN date -u +"%Y%m%d%H%M%S" > '/var/www/private/timestamp.txt'
