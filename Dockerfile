@@ -2,12 +2,12 @@ FROM debian:12
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# COPY pakcages list
+# COPY packages list
 COPY deploy/packages.txt /tmp/packages.txt
 COPY deploy/remove_carriage.sh /tmp/remove_carriage.sh
 RUN bash /tmp/remove_carriage.sh /tmp/packages.txt
 
-# ugrade and install packages
+# upgrade and install packages
 RUN apt update
 RUN apt install -y `cat /tmp/packages.txt`
 RUN rm /tmp/packages.txt
