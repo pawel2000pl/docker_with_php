@@ -29,14 +29,8 @@ COPY deploy/debug_config.sh /tmp/debug_config.sh
 RUN bash /tmp/remove_carriage.sh /tmp/debug_config.sh
 RUN bash /tmp/debug_config.sh
 
-# certificates and ssh keys
-RUN mkdir -p /root/.ssh
-COPY deploy/rsa_pub/*.pub /root/.ssh/
-RUN cat /root/.ssh/*.pub > /root/.ssh/authorized_keys
 COPY deploy/bashrc.sh /root/.bashrc
-COPY deploy/ssh_config /etc/ssh/ssh_config
 RUN bash /tmp/remove_carriage.sh /root/.bashrc
-RUN bash /tmp/remove_carriage.sh /etc/ssh/ssh_config
 
 # nginx & php configuration
 COPY deploy/sites.conf /etc/nginx/sites-available/
