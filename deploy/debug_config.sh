@@ -4,7 +4,7 @@ REMOTE_HOST=`/sbin/ip route | awk '/default/ { print $3 }'`
 
 if [ "$DEBUG" == "TRUE" ]
 then
-    apt install -y php8.2-xdebug bindfs
+    apt install -y php8.2-xdebug bindfs fuse3
     echo "xdebug.mode=debug" >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini
     echo 'xdebug.start_with_request = yes' >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini
     echo "xdebug.client_host=$REMOTE_HOST" >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini
