@@ -25,14 +25,12 @@ then
     bindfs -u www-data -g www-data --create-for-user=$USER_OWNER --create-for-group=$GROUP_OWNER /debug /var/www
 fi
 
-service ssh start
 service php8.2-fpm start
 service nginx start
 service cron start
 
 cleanup_function() {
     service cron stop
-    service ssh stop
     service php8.2-fpm stop
     service nginx stop
 }
