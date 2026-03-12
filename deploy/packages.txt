@@ -22,3 +22,6 @@ sqlite3
 sshfs
 ssl-cert
 systemtap-sdt-dev
+wget
+unzip
+zip
